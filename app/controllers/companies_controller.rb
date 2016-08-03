@@ -1,14 +1,14 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:edit, :show, :update, :destroy]
+
   def new
     @company = Company.new
   end
 
   def edit
-    @company = Company.find(params[:id])
   end
 
   def show
-    @company = Company.find(params[:id])
   end
 
   def index
@@ -26,7 +26,6 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    @company = Company.find(params[:id])
 
     if @company.update_attributes(company_params)
       redirect_to @company, notice: 'Company successfully updated'
@@ -36,7 +35,6 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:id])
     @company.destroy
     redirect_to companies_path
   end
@@ -45,5 +43,9 @@ class CompaniesController < ApplicationController
 
     def company_params
       params.require(:company).permit(:name, :budget, :actual)
+    end
+
+    def set_company
+      @company = Company.find(params[:id])
     end
 end
