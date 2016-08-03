@@ -1,0 +1,5 @@
+<ul>
+  <li>Budget: <%= number_to_currency(@company.budget, precision: 0) %></li>
+  <li>Actual: <%= number_to_currency(@company.actual, precision: 0) %></li>
+  <li>Percent Spent: <%= number_to_percentage(@company.percent_budget_spent, precision: 1) %></li>
+</ul>
