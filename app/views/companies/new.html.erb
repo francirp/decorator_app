@@ -1,7 +1,2 @@
 <h1>New Company</h1>
-<%= simple_form_for @company do |f| %>
-  <%= f.input :name %>
-  <%= f.input :budget, as: :string %>
-  <%= f.input :actual, as: :string %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

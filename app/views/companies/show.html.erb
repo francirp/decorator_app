@@ -1,5 +1,9 @@
+<h2><%= @company.name %></h2>
 <ul>
   <li>Budget: <%= number_to_currency(@company.budget, precision: 0) %></li>
   <li>Actual: <%= number_to_currency(@company.actual, precision: 0) %></li>
   <li>Percent Spent: <%= number_to_percentage(@company.percent_budget_spent, precision: 1) %></li>
 </ul>
+
+<%= link_to 'Edit Company', edit_company_path(@company), class: 'edit-link' %>
+<%= link_to 'Back to All Companies', companies_path %>
